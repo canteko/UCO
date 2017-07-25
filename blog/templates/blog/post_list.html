@@ -6,17 +6,12 @@
 				<div>
 						<h1><a href="">PaketaSO</a></h1>
 				</div>
-
+				{% for post in posts %}
 				<div>
-						<p>published: 24.07.2017, 22:15</p>
-						<h2><a href="">Mi primer post</a></h2>
-						<p>Primer post</p>
-				</div>
-
-				<div>
-						<p>published: 24.07.2017, 22:17</p>
-						<h2><a href="">Mi segundo post</a></h2>
-						<p>Segundo post</p>
-				</div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+		    {% endfor %}
 		</body>
 </html>
