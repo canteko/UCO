@@ -87,13 +87,14 @@ def addCircunscripcion(request):
 	return render_to_response ('addCircunscripcion.html', {'formulario':formulario}, context_instance = RequestContext(request))
 
 def editarCircunscripcion(request, circunscripcion_id):
-	circunscripcion = Circunscripcion.objects.get(pk=circunscripcion_id)
-	formulario = CircunscripcionForm (request.POST, instance = circunscripcion)
-	if formulario.is_valid():
-		formulario.save()
-		return HttpResponseRedirect('/')
+	circunscripcion = get_object_or_404(Circunscripcion, pk=circunscripcion_id)
+	if request.method == 'POST':
+		formulario = CircunscripcionForm (request.POST, instance = circunscripcion)
+		if formulario.is_valid():
+			formulario.save()
+			return HttpResponseRedirect('/')
 	else :
-		formulario = CircunscripcionForm()
+		formulario = CircunscripcionForm (instance = circunscripcion)
 	return render_to_response ('editarCircunscripcion.html', {'formulario':formulario, 'nombre':circunscripcion.nombre_c}, context_instance = RequestContext(request))
 
 def eliminarCircunscripcion(request, circunscripcion_id):
@@ -120,13 +121,14 @@ def addMesa(request):
 	return render_to_response ('addCircunscripcion.html', {'formulario':formulario}, context_instance = RequestContext(request))
 
 def editarMesa(request, mesa_id):
-	mesa = MesaElectoral.objects.get(pk=mesa_id)
-	formulario = MesaForm (request.POST, instance = mesa)
-	if formulario.is_valid():
-		formulario.save()
-		return HttpResponseRedirect('/')
+	mesa = get_object_or_404(MesaElectoral, pk=mesa_id)
+	if request.method == 'POST':
+		formulario = MesaForm (request.POST, instance = mesa)
+		if formulario.is_valid():
+			formulario.save()
+			return HttpResponseRedirect('/')
 	else :
-		formulario = MesaForm()
+		formulario = MesaForm(instance = mesa)
 	return render_to_response ('editarMesa.html', {'formulario':formulario, 'nombre':mesa.nombre_mesa}, context_instance = RequestContext(request))
 
 def detalleMesa(request, mesa_id):
