@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title> Detalles de Ruta </title>
+	</head>
+
+	<body>
+		Detalles de la Ruta
+		<ul>
+			<li> Nombre de la ruta: {{rutaDetalle.Nombre_Ruta}} </li>
+			{% if rutaDetalle.destinos %}
+
+			<li>Destinos:-
+			{% for x in rutaDetalle.destinos.all %}
+
+			  {{x}}-
+
+			{% endfor %}
+			</li>
+			{% endif %}
+		</ul>
+	</body>
+</html>

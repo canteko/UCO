@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<title>Elecciones 2017</title>
+<body>
+<h2>Bienvenido a la Votación Online</h2>
+</body>
+		{% block content %}
+
+		{% endblock %}
+		{% if  user.is_authenticated %}
+			<h3> Bienvenido {{user.username}} </h3>
+		{% endif %}
+		{% if not user.is_authenticated %}
+		    <a href="/login">Entrar</a>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+		   	<a href="/logout">Salir</a>
+		{% endif %}
+
+	<h3>Partidos</h3>
+		<a href ="/eleccion/verPartidosPoliticos"> <li>Ver Partidos Politicos</li></a>
+		<a href ="/eleccion/addPartidoPolitico"> <li>Añadir Partido Politico</li></a>
+
+	<h3>Circunscripciones</h3>
+		<a href ="/eleccion/verCircunscripciones"> <li>Ver Circunscripciones</li></a>
+		{% if user.username == "supervisor9" %}
+		<a href ="/eleccion/addCircunscripcion"> <li>Añadir Circunscripcion</li></a>
+		{% endif %}
+	<h3>Mesas</h3>
+		<a href ="/eleccion/verMesas"> <li>Ver Mesas</li></a>
+		{% if user.username == "supervisor9" %}
+		<a href ="/eleccion/addMesa"> <li>Añadir Mesa</li></a>
+		{% endif %}
+
+	<h3>Accion</h3>
+		{% if user.username != "gestor9" %}
+		<a href ="/eleccion/addVoto"> <li>Votar</li></a>
+
+		{% endif %}
+		<a href ="/eleccion/verResultados"> <li>Ver resultados</li></a>
+<!--
+	<h3>Destinos</h3>
+		<a href ="/entregas/verDestino"> <li>Ver destinos</li></a>
+		<a href ="/entregas/addDestino"> <li>Añadir destinos</li></a>
+
+	<h3>Paquetes</h3>
+		<a href ="/entregas/verPaquetes"> <li>Ver Paquetes</li></a>
+		<a href ="/entregas/addPaquetes"> <li>Añadir Paquetes</li></a>
+
+	<h3>Rutas</h3>
+		<a href ="/entregas/verRuta"> <li>Ver Rutas</li></a>
+		<a href ="/entregas/addRuta"> <li>Añadir Ruta</li></a> -->
+</html>

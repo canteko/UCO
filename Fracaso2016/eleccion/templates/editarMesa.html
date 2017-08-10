@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title> Editar Mesa </title>
+	</head>
+
+	<body>
+		<h1> Editar Mesa {{ nombre }}</h1>
+
+		<form id='formulario' method='post' enctype='multipart/form-data' action=''>
+		{% csrf_token %}
+		{{ formulario.as_p }}
+		<input type="submit" value="Guardar"/>
+		</form>
+
+	</body>
+</html>

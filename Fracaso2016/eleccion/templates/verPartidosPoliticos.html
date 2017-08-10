@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title> Partidos Politicos </title>
+		<h1> Lista de destinarios</h1>
+	</head>
+
+	<body>
+		{% if partidos_politicos %}
+		<ul>
+			{% for x in partidos_politicos %}
+
+			<a href =/eleccion/detallePartidoPolitico/{{x.id}}><li> {{x.nombre_partido}} </li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<h1> No hay partidos que mostrar </h1>
+		{% endif %}
+	</body>
+</html>

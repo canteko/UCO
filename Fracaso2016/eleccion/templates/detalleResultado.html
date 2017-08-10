@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title> Resultados de la mesa</title>
+
+{% if user.username == "supervisor9" %}
+	</head>
+
+	<body>
+		Resultados de la {{mesa.nombre_mesa}}
+		<ul>
+			<li> Nombre: {{mesa.nombre_mesa}} </li>
+			<li> Circunscripción: {{mesa.circunscripcion_mesa}} </li>
+			<b> Votos: </b>
+			<ul>
+			{% for key, value in partidos_votos.items %}
+			  <li>{{key}} - {{value}}</li>
+			{% endfor %}
+			</ul>
+		</ul>
+{% else %}
+	No eres un usuario gestor
+{% endif %}
+	</body>
+</html>

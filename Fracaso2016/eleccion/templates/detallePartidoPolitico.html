@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title> Detalle de Partido Politico </title>
+
+
+	</head>
+
+	<body>
+		Detalle de Partido Politico
+		<ul>
+			<li> Nombre: {{partido_politico.nombre_partido}} </li>
+			<li> Posicion en el eje: {{partido_politico.pos_eje_partido}} </li>
+			<li> Descripcion: {{partido_politico.descripcion_partido}} </li>
+			{% if user.username == "gestor9" %}
+				<li> Votos: {{votos_partido}} </li>
+			{% endif %}
+		</ul>
+
+	</body>
+</html>

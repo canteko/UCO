@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title> Detalle de la Circunscripcion </title>
+
+
+	</head>
+
+	<body>
+		Detalle de la Circunscripcion
+		{% if user.username == "supervisor9" %}
+		<b><a href =/eleccion/editarCircunscripcion/{{circ.id}}/><li> Editar </li></b>
+		<b><a href =/eleccion/eliminarCircunscripcion/{{circ.id}}/><li> Eliminar </b></a> (Elimina la circunscripción y todo lo subordinado a él) </li>
+		{% endif %}
+		<ul>
+			<li> Nombre: {{circ.nombre_c}} </li>
+			<li> Escaños: {{circ.escanos_c}} </li>
+			<b> Mesas: </b>
+			{% for x in mesas %}
+				<a href =/eleccion/detalleMesa/{{x.id}}><li> {{x.nombre_mesa}} </li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

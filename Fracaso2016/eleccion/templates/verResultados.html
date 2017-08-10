@@ -1,0 +1,26 @@
+<html>
+	<head>
+		
+		<title> Resultado </title>
+		<h1> Resultado por mesas </h1>
+	</head>
+
+	<body>
+		{% if resultado %}
+		<ul>
+			{% for x in resultado %}
+
+			<a href =/eleccion/detalleResultados/{{x.id}}><li> {{x}} </li></a>
+			{% endfor %}
+		{% else %}
+			<h1> No hay mesas que mostrar </h1>
+		{% endif %}
+		</ul>
+		{% if dic %}
+			<h1> Resultado total </h1>
+			{% for key, value in dic.items %}
+				<li>{{key}} - {{value}} escaños</li>
+			{% endfor %}
+		{% endif %}
+	</body>
+</html>

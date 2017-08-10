@@ -1,0 +1,31 @@
+<!-- <html>
+	<head>
+		<title> Circunscripciones </title>
+		<h1> Circunscripciones</h1>
+	</head>
+
+	<body>
+		{% if circunscripciones %}
+		<ul>
+			{% for x in circunscripciones %}
+
+			<a href =/eleccion/detalleCircunscripcion/{{x.id}}><li> {{x.nombre_c}} </li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<h1> No hay circunscripciones que mostrar </h1>
+		{% endif %}
+	</body>
+</html> -->
+{% block content %}
+		{% if object_list %}
+    <h2>Circunsripciones</h2>
+    <ul>
+        {% for circuncripcion in object_list %}
+            <a href =/eleccion/detalleCircunscripcion/{{circuncripcion.id}}/><li>{{ circuncripcion }}</li></a>
+        {% endfor %}
+    </ul>
+		{% else %}
+			<h1> No hay circunscripciones que mostrar </h1>
+		{% endif %}
+{% endblock %}

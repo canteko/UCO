@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title> Detalle de la mesa </title>
+
+
+	</head>
+
+	<body>
+		Detalle de la mesa
+		{% if user.username == "supervisor9" %}
+		<b><a href =/eleccion/editarMesa/{{mesa.id}}><li> Editar </li></b></a>
+		{% endif %}
+		<ul>
+			<li> Nombre: {{mesa.nombre_mesa}} </li>
+			<li> Circunscripción: {{mesa.circunscripcion_mesa}} </li>
+			<li> Votos depositados: {{votos_mesa}} </li>
+		</ul>
+
+	</body>
+</html>
