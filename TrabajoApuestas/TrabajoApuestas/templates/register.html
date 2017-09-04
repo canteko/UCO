@@ -1,0 +1,10 @@
+<form method="POST">{% csrf_token %}
+	<p> Registro </p>
+		{% if fallo %}
+			{{fallo}}
+		{% endif %}
+		<input type="text" name="username" id="inputUsername" placeholder="Introduzca Usuario...">
+		<input type="password" name="password1" id="inputPassword" placeholder="Introduzca Contraseña...">
+		<input type="password" name="password2" id="inputPassword" placeholder="Introduzca Contraseña de nuevo...">
+		<button type="submit">Registrar</button>
+</form>

@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+<form method="POST">{% csrf_token %}
+	<b><p> Registrar Partido </p></b>
+		{% if fallo %}
+			{{fallo}}
+		{% endif %}
+		<p>Equipo Local</p>
+		{% for i in equipos %}
+			<input type="radio" name="Local" value={{i.id}}>{{i.name}}<br>
+		{% endfor %}
+		<p>Equipo Visitante</p>
+		{% for i in equipos %}
+			<input type="radio" name="Visitante" value={{i.id}}>{{i.name}}<br>
+		{% endfor %}
+		<p>Fecha de inicio</p>
+		<input type="text" name="Inicio" placeholder="dd/mm/aaaa --:--">
+		<button type="submit">Registrar partido</button>
+</form>
+{% endblock %}

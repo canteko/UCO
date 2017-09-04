@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block login %}
+<form method="POST">{% csrf_token %}
+	<p> Login </p>
+		<div="noUser">*La información no es correcta</div>
+		<input type="text" name="username" id="inputUsername" placeholder="Introduzca Usuario....">
+		<input type="password" name="password" id="inputPassword" placeholder="Introduzca Contraseña....">
+		<button type="submit">Entrar</button>
+</form>
+{% endblock %}

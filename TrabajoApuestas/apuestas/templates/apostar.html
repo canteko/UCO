@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+<form method="POST">{% csrf_token %}
+	<b><p> Apostar {{partido}} </p></b>
+		{% if fallo %}
+			{{fallo}}
+		{% endif %}
+		<p>Equipo Local</p>
+		<li>{{partido.local}}, Ratio: {{partido.ratio_local}}</li>
+		<p>Equipo Visitante</p>
+		<li>{{partido.visitante}}, Ratio: {{partido.ratio_visitante}}</li>
+		<p>Empate</p>
+		<li>Ratio: {{partido.ratio_even}}</li>
+
+
+		<input type="radio" name="Resultado" value=1>Victoria {{partido.local}}<br>
+		<input type="radio" name="Resultado" value=2>Victoria {{partido.visitante}}<br>
+		<input type="radio" name="Resultado" value=x checked>Empate<br>
+		<p>Cantidad apostada</p>
+		<input type="number" name="Creditos" min="0" max="{{user_profile.credit}} "placeholder="Cantidad apostada">
+		<button type="submit">Registrar apuesta</button>
+</form>
+{% endblock %}

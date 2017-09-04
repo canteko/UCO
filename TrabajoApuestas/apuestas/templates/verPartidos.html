@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block content %}
+		<title> Partidos </title>
+	<body>
+		{% if partidos %}
+		<ul>
+			{% for x in partidos %}
+				<li> {{x}}
+					{% if not x.empezado %}
+						<p>El partido empieza en: {{x.inicio}}</p>
+						<p>Ratio Local ({{x.local}}): {{x.ratio_local}}</p>
+						<p>Ratio Visitante ({{x.visitante}}): {{x.ratio_visitante}}</p>
+						<p>Ratio Empate: {{x.ratio_even}}</p>
+						<a href="/apuestas/apostar/{{x.id}}"><button type="button">Apostar</button></a>
+					{% endif %}
+					{% if x.empezado and not x.terminado %}
+						<p>El partido está en curso</p>
+					{% endif %}
+					{% if x.empezado and x.terminado %}
+						<p>Resultado: {{x.local}}: {{x.puntos_local}}, {{x.visitante}}: {{x.puntos_visitante}}</p>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<p> No hay partidos que mostrar </p>
+		{% endif %}
+	</body>
+{% endblock %}

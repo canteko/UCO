@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block content %}
+	{% if  user.is_authenticated %}
+		<p>Usuario: {{user.username}}</p>
+		<p>Creditos: {{user_profile.credit}}</p>
+		<p>Apuestas: {% for i in bets %}
+			<li>{{i}} {% if i.won == True %}
+				Ganada
+				{% endif %}
+			</li>
+			{% endfor %}
+	{% endif %}
+{% endblock %}
